@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SusmusGramm</string>
+
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <string name="back4app_app_id">VSJ6i62aKvLZqjkruaD1x4LvRvAZq7k6e9mHo1QG</string>
+    <string name="back4app_client_key">P13tchpMI30mq8rY2QnjK3vQoSIxb8wAjilh4inm</string>
+    <string name="title_activity_hellcome">Hellcome</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+</resources>
