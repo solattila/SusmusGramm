@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -37,6 +38,12 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (edtMail.getText().toString().equals("") ||
+                        edtPassword.getText().toString().equals("")) {
+                    FancyToast.makeText(SignIn.this, "Email vagy jelszó hiányzik.",
+                            FancyToast.LENGTH_SHORT, FancyToast.INFO, false).show();
+                } else {
+
               ParseUser.logInInBackground(edtMail.getText().toString(),
                       edtPassword.getText().toString(), new LogInCallback() {
                           @Override
@@ -45,8 +52,10 @@ public class SignIn extends AppCompatActivity {
                                   FancyToast.makeText(SignIn.this, user.get("username") + " sikeres bejelentkezés",
                                           FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show();
 
-                                  Intent intent = new Intent(SignIn.this, Hellcome.class);
-                                  startActivity(intent);
+//                                  Intent intent = new Intent(SignIn.this, Hellcome.class);
+//                                  startActivity(intent);
+
+                                  transitionToSocialMedia();
 
 
                               }else {
@@ -57,7 +66,7 @@ public class SignIn extends AppCompatActivity {
                       });
 
 
-            }
+            }}
         });
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -69,4 +78,25 @@ public class SignIn extends AppCompatActivity {
         });
 
     }
+
+    public void layoutTapped(View view){
+
+        try {
+
+
+
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);}
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    private void transitionToSocialMedia(){
+        Intent intent = new Intent(SignIn.this, SocialMediaAct.class);
+        startActivity(intent);
+    }
+
 }
